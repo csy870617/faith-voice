@@ -1,0 +1,131 @@
+{
+ "version": "supertonic3-aafc6e3_ort1.23.2",
+ "model": "Supertonic 3 (supertone-oss-archive/supertonic-3 @ aafc6e32416a594460b32413efc49d7fe4ce6d46)",
+ "runtime": "onnxruntime-web 1.23.2",
+ "files": [
+  {
+   "path": "ort/ort.wasm.min.js",
+   "size": 49926,
+   "type": "text/javascript"
+  },
+  {
+   "path": "ort/ort-wasm-simd-threaded.mjs",
+   "size": 20321,
+   "type": "text/javascript"
+  },
+  {
+   "path": "ort/ort-wasm-simd-threaded.wasm",
+   "size": 11905541,
+   "type": "application/wasm"
+  },
+  {
+   "path": "ort/ort.webgpu.min.js",
+   "size": 66329,
+   "type": "text/javascript"
+  },
+  {
+   "path": "ort/ort-wasm-simd-threaded.asyncify.mjs",
+   "size": 51913,
+   "type": "text/javascript"
+  },
+  {
+   "path": "ort/ort-wasm-simd-threaded.asyncify.wasm",
+   "size": 25499390,
+   "type": "application/wasm"
+  },
+  {
+   "path": "onnx/tts.json",
+   "size": 8253,
+   "type": "application/json"
+  },
+  {
+   "path": "onnx/unicode_indexer.json",
+   "size": 277676,
+   "type": "application/json"
+  },
+  {
+   "path": "onnx/duration_predictor.onnx",
+   "size": 3700147,
+   "type": "application/octet-stream"
+  },
+  {
+   "path": "onnx/text_encoder.onnx",
+   "size": 36416150,
+   "type": "application/octet-stream"
+  },
+  {
+   "path": "onnx/vector_estimator.onnx",
+   "size": 256534781,
+   "type": "application/octet-stream",
+   "parts": [
+    "onnx/vector_estimator.onnx.part0",
+    "onnx/vector_estimator.onnx.part1",
+    "onnx/vector_estimator.onnx.part2",
+    "onnx/vector_estimator.onnx.part3",
+    "onnx/vector_estimator.onnx.part4",
+    "onnx/vector_estimator.onnx.part5",
+    "onnx/vector_estimator.onnx.part6"
+   ]
+  },
+  {
+   "path": "onnx/vocoder.onnx",
+   "size": 101424195,
+   "type": "application/octet-stream",
+   "parts": [
+    "onnx/vocoder.onnx.part0",
+    "onnx/vocoder.onnx.part1",
+    "onnx/vocoder.onnx.part2"
+   ]
+  },
+  {
+   "path": "voice_styles/F1.json",
+   "size": 292046,
+   "type": "application/json"
+  },
+  {
+   "path": "voice_styles/F2.json",
+   "size": 292423,
+   "type": "application/json"
+  },
+  {
+   "path": "voice_styles/F3.json",
+   "size": 290794,
+   "type": "application/json"
+  },
+  {
+   "path": "voice_styles/F4.json",
+   "size": 291808,
+   "type": "application/json"
+  },
+  {
+   "path": "voice_styles/F5.json",
+   "size": 291479,
+   "type": "application/json"
+  },
+  {
+   "path": "voice_styles/M1.json",
+   "size": 291748,
+   "type": "application/json"
+  },
+  {
+   "path": "voice_styles/M2.json",
+   "size": 292055,
+   "type": "application/json"
+  },
+  {
+   "path": "voice_styles/M3.json",
+   "size": 290198,
+   "type": "application/json"
+  },
+  {
+   "path": "voice_styles/M4.json",
+   "size": 291522,
+   "type": "application/json"
+  },
+  {
+   "path": "voice_styles/M5.json",
+   "size": 291469,
+   "type": "application/json"
+  }
+ ]
+}

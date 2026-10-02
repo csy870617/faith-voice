@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>신앙일지 음성</title>
+<style>
+  :root { --bg:#fff; --fg:#1f2937; --muted:#6b7280; --line:#e5e7eb; --accent:#14b8a6; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#111827; --fg:#f3f4f6; --muted:#9ca3af; --line:#374151; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.7 -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  main { max-width:640px; margin:0 auto; padding:40px 16px; }
+  h1 { font-size:22px; margin:0 0 4px; }
+  p.sub { color:var(--muted); margin:0 0 24px; }
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  td { padding:8px 0; border-top:1px solid var(--line); vertical-align:top; }
+  td:first-child { color:var(--muted); width:30%; }
+  a { color:var(--accent); }
+  .note { margin-top:24px; font-size:13px; color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <h1>신앙일지 음성</h1>
+  <p class="sub">신앙일지 앱의 자연스러운 음성 읽기에 쓰는 음성 모델 보관소입니다.</p>
+  <table>
+    <tr><td>사용 방법</td><td>신앙일지 앱 → 글 열기 → 음성 읽기 → 설정(⚙) → 자연음 <b>내려받기</b></td></tr>
+    <tr><td>크기</td><td id="size">약 440MB (한 번만 받으면 인터넷 없이 사용)</td></tr>
+    <tr><td>음성 모델</td><td>Supertonic 3 · <a href="https://github.com/supertone-inc/supertonic">Supertone Inc.</a> · <a href="LICENSE">Open RAIL-M</a></td></tr>
+    <tr><td>실행 엔진</td><td>onnxruntime-web 1.23.2 · Microsoft · <a href="ort/LICENSE-onnxruntime-web.txt">MIT</a></td></tr>
+  </table>
+  <p class="note">모델 내용은 바꾸지 않았고, 큰 파일만 GitHub 크기 제한 때문에 조각으로 나눠 두었습니다. 음성 모델과 이 모델로 만든 음성에는 Open RAIL-M 라이선스의 사용 제한(부록 A)이 적용됩니다.</p>
+</main>
+<script>
+  fetch('manifest.json').then(r => r.json()).then(m => {
+    const mb = Math.round(m.files.reduce((s, f) => s + f.size, 0) / 1e6);
+    document.getElementById('size').textContent = `약 ${mb}MB (한 번만 받으면 인터넷 없이 사용)`;
+  }).catch(() => {});
+</script>
+</body>
+</html>
