@@ -9,12 +9,21 @@
 | 경로 | 내용 | 출처 · 라이선스 |
 |---|---|---|
 | `onnx/`, `voice_styles/` | Supertonic 3 음성 모델과 목소리 10종(여성 F1–F5, 남성 M1–M5) | [supertone-oss-archive/supertonic-3](https://huggingface.co/supertone-oss-archive/supertonic-3) (revision `aafc6e32416a594460b32413efc49d7fe4ce6d46`) · **BigScience Open RAIL-M** (`LICENSE`) |
+| `onnx/vector_estimator_int8.onnx` | 위 모델 중 가장 큰 `vector_estimator`를 8비트로 양자화한 것 (CPU로 계산하는 기기용) | 원본에서 만든 파생물 · **BigScience Open RAIL-M** (`LICENSE`) |
 | `ort/` | 브라우저 실행 엔진 onnxruntime-web 1.23.2 | Microsoft · **MIT** (`ort/LICENSE-onnxruntime-web.txt`) |
 | `manifest.json` | 앱이 받을 파일 목록 · 크기 · 조각 정보 | — |
 
 ## 원본과 다른 점
 
-모델 내용은 바꾸지 않았습니다. GitHub의 파일 크기 제한(100MB) 때문에
+원본 모델 파일의 내용은 바꾸지 않았습니다.
+
+**추가한 파생 모델 — `vector_estimator_int8.onnx`:** GPU 없이 CPU로 계산하는 기기를 위해
+`vector_estimator.onnx`를 onnxruntime의 정적 양자화(QDQ, Conv·MatMul, 채널별, 보정 입력 46개)로
+8비트로 바꿨습니다. 브라우저(WASM)에서 약 40% 빠르고(257MB → 67MB), 받아쓰기(Whisper)로 잰
+알아듣기 정확도는 품질 8단계에서 원본과 같았습니다(99%). 보코더는 양자화하면 음질이 무너져 원본을 씁니다.
+앱은 GPU 기기에는 원본을, CPU 기기에는 8비트를 받습니다(`manifest.json`의 `only` 표시).
+
+나머지는 GitHub의 파일 크기 제한(100MB) 때문에
 `vector_estimator.onnx`와 `vocoder.onnx`를 40MB 조각(`*.partN`)으로 **나누기만** 했고,
 앱이 받을 때 순서대로 이어 붙여 원본과 같은 파일로 되돌립니다.
 

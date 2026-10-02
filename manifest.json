@@ -1,5 +1,5 @@
 {
- "version": "supertonic3-aafc6e3_ort1.23.2",
+ "version": "supertonic3-aafc6e3_ort1.23.2_int8v1",
  "model": "Supertonic 3 (supertone-oss-archive/supertonic-3 @ aafc6e32416a594460b32413efc49d7fe4ce6d46)",
  "runtime": "onnxruntime-web 1.23.2",
  "files": [
@@ -65,6 +65,16 @@
     "onnx/vector_estimator.onnx.part4",
     "onnx/vector_estimator.onnx.part5",
     "onnx/vector_estimator.onnx.part6"
+   ],
+   "only": "webgpu"
+  },
+  {
+   "path": "onnx/vector_estimator_int8.onnx",
+   "size": 66825313,
+   "type": "application/octet-stream",
+   "parts": [
+    "onnx/vector_estimator_int8.onnx.part0",
+    "onnx/vector_estimator_int8.onnx.part1"
    ]
   },
   {
@@ -127,5 +137,6 @@
    "size": 291469,
    "type": "application/json"
   }
- ]
+ ],
+ "notes": "vector_estimator_int8: 정적 양자화(QDQ, Conv+MatMul, per-channel, 보정 46개 입력). CPU(WASM)에서 약 40% 빠름. 보코더는 양자화하면 음질이 무너져 원본 유지."
 }
