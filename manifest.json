@@ -1,5 +1,5 @@
 {
- "version": "supertonic3-aafc6e3_ort1.23.2_int8v1",
+ "version": "supertonic3-aafc6e3_ort1.23.2_int8v2",
  "model": "Supertonic 3 (supertone-oss-archive/supertonic-3 @ aafc6e32416a594460b32413efc49d7fe4ce6d46)",
  "runtime": "onnxruntime-web 1.23.2",
  "files": [
@@ -70,7 +70,7 @@
   },
   {
    "path": "onnx/vector_estimator_int8.onnx",
-   "size": 66825313,
+   "size": 65588112,
    "type": "application/octet-stream",
    "parts": [
     "onnx/vector_estimator_int8.onnx.part0",
@@ -138,5 +138,6 @@
    "type": "application/json"
   }
  ],
- "notes": "vector_estimator_int8: 정적 양자화(QDQ, Conv+MatMul, per-channel, 보정 46개 입력). CPU(WASM)에서 약 40% 빠름. 보코더는 양자화하면 음질이 무너져 원본 유지."
+ "notes": "vector_estimator_int8: 동적 양자화(Conv 1x1·MatMul, uint8, 계산할 때마다 값의 범위를 새로 잼 — depthwise Conv 28개는 원본 유지). 자연스러움 점수(UTMOS) 8단계 3.86으로 원본(3.92)에 가깝고 예전 정적 양자화판(2.90)보다 크게 좋음. CPU(WASM)에서 원본보다 약 2.2배 빠름. 보코더는 양자화하면 음질이 무너져 원본 유지.",
+ "updateNote": "더 자연스러운 음성"
 }
